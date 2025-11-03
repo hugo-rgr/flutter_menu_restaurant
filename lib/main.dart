@@ -112,6 +112,20 @@ class _MenuPageState extends State<MenuPage> {
       imageUrl: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=400',
       categorie: 'Entrées',
     ),
+    Plat(
+      nom: 'Assiette de charcuterie',
+      description: 'Sélection de charcuterie artisanale, cornichons',
+      prix: 10.50,
+      imageUrl: 'https://images.unsplash.com/photo-1542328153-4e6fc3b3aba0?w=400',
+      categorie: 'Entrées',
+    ),
+    Plat(
+      nom: 'Tartare de saumon',
+      description: 'Saumon frais mariné, avocat, citron vert',
+      prix: 11.00,
+      imageUrl: 'https://images.unsplash.com/photo-1580959375944-0be43c7e0c97?w=400',
+      categorie: 'Entrées',
+    ),
 
     // Plats principaux
     Plat(
@@ -214,6 +228,20 @@ class _MenuPageState extends State<MenuPage> {
       description: 'Jus fraîchement pressé',
       prix: 4.00,
       imageUrl: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400',
+      categorie: 'Boissons',
+    ),
+    Plat(
+      nom: 'Thé glacé maison',
+      description: 'Thé infusé à froid, menthe fraîche',
+      prix: 3.50,
+      imageUrl: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400',
+      categorie: 'Boissons',
+    ),
+    Plat(
+      nom: 'Smoothie fruits rouges',
+      description: 'Fraises, framboises, myrtilles, yaourt',
+      prix: 5.00,
+      imageUrl: 'https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400',
       categorie: 'Boissons',
     ),
   ];
