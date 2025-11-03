@@ -132,7 +132,7 @@ class _MenuPageState extends State<MenuPage> {
       nom: 'Risotto aux champignons',
       description: 'Risotto crémeux, champignons des bois, parmesan',
       prix: 14.50,
-      imageUrl: 'https://images.unsplash.com/photo-1476124369491-f7addf4c6909?w=400',
+      imageUrl: 'haha', // image non fonctionnelle pour voir le fallback
       categorie: 'Plats',
     ),
     Plat(
