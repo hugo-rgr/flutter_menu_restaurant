@@ -28,6 +28,7 @@ class MenuPage extends StatefulWidget {
   State<MenuPage> createState() => _MenuPageState();
 }
 
+// Classe représentant un plat avec ses informations
 class Plat {
   final String nom;
   final String description;
@@ -45,7 +46,7 @@ class Plat {
 }
 
 class _MenuPageState extends State<MenuPage> {
-  // Catégorie actuellement sélectionnée
+  // Variable d'état pour suivre la catégorie actuellement sélectionnée
   String categorieSelectionnee = 'Formules';
 
   // Liste des catégories disponibles
@@ -57,6 +58,7 @@ class _MenuPageState extends State<MenuPage> {
     'Boissons',
   ];
 
+  // Liste de tous les plats
   final List<Plat> listePlats = [
     // Formules
     Plat(
@@ -240,6 +242,11 @@ class _MenuPageState extends State<MenuPage> {
         centerTitle: true,
       ),
 
+      // Column utilisé ici pour organiser verticalement les sections :
+      // 1. Barre de catégories (horizontal scroll)
+      // 2. Séparateur
+      // 3. Liste des plats (vertical scroll)
+
       body: Column(
         children: [
           // Zone de catégories défilable horizontalement avec Row
@@ -247,14 +254,14 @@ class _MenuPageState extends State<MenuPage> {
             height: 60,
             padding: const EdgeInsets.symmetric(vertical: 10),
             color: Colors.grey[100],
-            child: SingleChildScrollView(
+            child: SingleChildScrollView( // Pour défilement horizontal
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
                   for (var categorie in categories)
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      // GestureDetector pour détecter les clics
+                      // GestureDetector onTap() pour détecter les clics
                       child: GestureDetector(
                         onTap: () => changerCategorie(categorie),  // Change la catégorie
                         child: Container(
@@ -306,9 +313,10 @@ class _MenuPageState extends State<MenuPage> {
           // Ligne de séparation
           const Divider(thickness: 1),
 
-          // Zone principale pour les plats (cartes) - ListView.builder
+          // Zone principale pour les plats (cartes)
+          // Expanded prend tout l'espace vertical restant dans la Column
           Expanded(
-            child: ListView.builder(
+            child: ListView.builder( // Création des plats de manière lazy
               itemCount: getPlatsFiltres().length,  // Utilise les plats filtrés
               padding: const EdgeInsets.all(8),
               itemBuilder: (context, index) {
@@ -340,10 +348,10 @@ class CartePlat extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Row(
+        child: Row( // Row organise horizontalement : image à gauche, infos à droite
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image du plat
+            // Container avec taille fixe pour uniformiser toutes les images
             Container(
               width: 100,
               height: 100,
@@ -367,11 +375,13 @@ class CartePlat extends StatelessWidget {
               ),
             ),
 
+            // Espacement horizontal entre image et texte
             const SizedBox(width: 12),
 
             // Informations du plat
+            // Expanded permet au contenu de prendre tout l'espace restant
             Expanded(
-              child: Column(
+              child: Column( // Column organise verticalement : nom, description, prix
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Nom du plat
@@ -393,12 +403,13 @@ class CartePlat extends StatelessWidget {
                       color: Colors.grey[600],
                     ),
                     maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
+                    overflow: TextOverflow.ellipsis, // Ajoute "..." si texte trop long
                   ),
 
                   const SizedBox(height: 8),
 
                   // Prix
+                  // Row pour aligner icône et texte horizontalement
                   Row(
                     children: [
                       const Icon(
